@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+  	<header>
+  		<a href="/"><h1>Books Lists</h1></a>
+  		<ul>
+  			<li><a href="/">Home</a></li>
+  			<li><a href="/add">Add Books</a></li>
+  			<li><a href="/author">Author</a></li>
+        <li><a href="/users/signin">Sign in</a></li>
+        <li><a href="/users/login">Log in</a></li>
+  		</ul>	
+  	</header>
+    <form class='add-form' action="/users" method='POST'>
+      <input type="text" name='email' placeholder="Enter your email">
+      <input type="text" name='password' placeholder="Enter your password">
+      <% if(message) { %> 
+          <p>*<%= message %></p>
+      <% } %>
+      <input type="submit" value='Log in'>
+    </form>
+  </body>
+</html>

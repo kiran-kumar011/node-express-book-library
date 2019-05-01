@@ -1,0 +1,218 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*. main body styling */
+
+.add-form {
+	width: 30vw;
+	display: block;
+	margin: 0 auto;
+	box-sizing: border-box;
+	text-align: center;
+	padding:10px 0px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 10px;
+	background-color: dodgerblue;
+}
+
+input:focus, textarea:focus {
+	outline: none;
+}
+
+input, textarea {
+	border: 0;
+	padding: 10px;
+	margin: 0;
+	width: 26vw;
+	margin: 10px;
+	font-size: 20px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 5px;
+}
+
+
+
+header {
+	padding:  20px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-active {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+}
+
+ul {
+	display: flex;
+	align-items: center;
+}
+li, a {
+	text-decoration: none;
+	padding: 0 20px;
+	font-size: 24px;
+	color: dodgerblue;
+}
+.list-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-gap: 20px;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 20px;
+}
+.book-list {
+	box-sizing: border-box;
+	padding: 10px;
+	background-color: dodgerblue;
+	color: white;
+	text-align: center;
+	box-shadow: 0 0 3px 2px rgba(0,0,0,0.1);
+	word-wrap: break-word;
+}
+
+.book-list a {
+	color: white;
+}
+
+.book-list h1 {
+	font-size: 25px;
+	text-transform: capitalize;
+	text-shadow: 2px 2px black;
+	padding: 10px 0;
+
+}
+.book-list h2 {
+	font-size: 20px;
+	padding: 10px 0;
+
+}
+
+.book-list button {
+	margin-top: 20px; 
+	font-size: 16px;
+	background: transparent;
+	border-radius: 5px;
+	color: white;
+
+}
+button:focus {
+	outline: none;
+}
+
+
+.book-wrapper {
+	display: block;
+	width: 40vw;
+	margin: 0 auto;
+	background-color: dodgerblue;
+	box-sizing: border-box;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.book-wrapper h1, .book-wrapper h2, .book-wrapper p  {
+	background-color: white;
+	padding: 3px 10px;
+	border-radius: 5px;
+	margin: 10px 0;
+}
+.book-wrapper p, .book-wrapper h2 {
+	font-size: 20px;
+}
+
+.book-wrapper button {
+	font-size: 20px;
+	background: transparent;
+	color: white;
+	border-radius: 5px;
+}
+
+.edit-add {
+	font-size: 20px;
+	background-color: transparent;
+	color: white;
+	padding: 5px 35px;
+	border: 2px solid white;
+	border-radius: 10px;
+}
+
+.book-button {
+	display: flex;
+	justify-content: space-between;
+}
+
+.del-btn button, .edit-btn button{
+	font-size: 20px;
+	padding: 4px 20px;
+	border: 1px solid white;
+}
+
+select:focus {
+	outline: none;
+}
+
+.select {
+	width: 80%;
+	font-size: 20px;
+}
+
+.logout {
+	background-color: rgba(230,230,250,1);
+	font-size: 10px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	line-height: 25px;
+}
+
+
+
+
+
+

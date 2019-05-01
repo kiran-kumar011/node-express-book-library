@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>edit</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+    <header>
+  		<a href="/"><h1>Books Lists</h1></a>
+  		<ul>
+  			<li><a href="/">Home</a></li>
+  			<li><a href="/add">Add Books</a></li>
+  			<li><a href="/author">Author</a></li>
+        <li><a href="/users/signin">Sign in</a></li>
+        <li><a href="/users/login">Log in</a></li>
+  		</ul>
+  	</header>
+  	<form class='add-form' action="/edit/<%= book._id %>/update" method="POST">
+      <input type="text" name="title" placeholder="Enter book title" value='<%= book.title %>'>
+      <textarea type="text" rows='10' name="description" placeholder="Enter book description"><%= book.description %></textarea>
+    <!--   in this section have to render the author name by default and then should give a list of number of authors available to change the author name -->
+      <input type="text" name="author" placeholder="Enter author name" value='<%= book.author.name %>' disabled>
+      <input class='edit-add' type='submit' value="Add Book"></input>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+  	<header>
+  		<a href="/"><h1>Books Lists</h1></a>
+  		<ul>
+  			<li><a href="/">Home</a></li>
+  			<li><a href="/add">Add Books</a></li>
+  			<li><a href="/author">Author</a></li>
+  		</ul>	
+  	</header>
+    <form class='add-form' action="/users/login" method='POST'>
+      <input type="text" name='username' placeholder="Enter username">
+      <input type="text" name='email' placeholder="Enter your email">
+      <input type="text" name='password' placeholder="Enter your password">
+      <input type="submit" value='Add user'>
+    </form>
+  </body>
+</html>

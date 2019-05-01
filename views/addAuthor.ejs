@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>add author</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+  	<header>
+  		<a href="/"><h1>Books Lists</h1></a>
+  		<ul>
+  			<li><a href="/">Home</a></li>
+  			<li><a href="/add">Add Books</a></li>
+  			<li><a href="/author">Author</a></li>
+         <% if(user) {%>
+            <% if(user.id) {%>
+              <li><a href="/users/logout">Log out</a></li> 
+            <% } %>
+        <% } else {%>
+          <li><a href="/users/signin">Sign in</a></li>
+          <li><a href="/users/login">Log in</a></li>
+        <% } %>
+  		</ul>	
+  	</header>
+    <form class='add-form' action="/author" method='POST'>
+    	<input type="text" name='name' placeholder='Enter author name'>
+      <input type="text" name='email' placeholder='Enter author Email'>
+    	<input type="number" name='age' placeholder='Enter author age'>
+			<input type="submit" value="Add Author">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>book</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+    <header>
+      <a href="/"><h1>Books Lists</h1></a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/add">Add Books</a></li>
+        <li><a href="/author">Author</a></li>
+         <% if(user) {%>
+            <% if(user.id) {%>
+              <li><a href="/users/logout">Log out</a></li> 
+            <% } %>
+        <% } else {%>
+          <li><a href="/users/login">Log in</a></li>
+        <% } %>
+      </ul>
+    </header>
+    <div class="book-wrapper">
+      <a href="/book/<%= book._id %>"><h1><%= book.title %></h1></a>
+      <h2><%= book.author %></h2>
+      <p><%= book.description %></p>
+      <div class='book-button'>
+        <a href="/del/<%= book.id %>"><button>Del</button></a>
+        <a href="/edit/<%= book.id %>"><button>Edit</button></a>
+      </div> 
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>add book</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+  	<header>
+  		<a href="/"><h1>Books Lists</h1></a>
+  		<ul>
+  			<li><a href="/">Home</a></li>
+  			<li><a href="/add">Add Books</a></li>
+  			<li><a href="/author">Author</a></li>
+         <% if(user) {%>
+            <% if(user.id) {%>
+              <li><a href="/users/logout">Log out</a></li> 
+            <% } %>
+        <% } else {%>
+          <li><a href="/users/signin">Sign in</a></li>
+          <li><a href="/users/login">Log in</a></li>
+        <% } %>
+  		</ul>	
+  	</header>
+    <form class='add-form' action="/" method="POST">
+    	<input type="text" name="title" placeholder="Enter book title">
+    	<textarea rows='10' type="text" name="description" placeholder="Enter book description..."></textarea>
+      <select class='select' name="author">
+        <% authors.forEach(author => { %>
+         <option value="<%= author._id %>"><%= author.name %></option>
+        <% }) %>
+      </select>
+			<input type="submit" value="Add Book">
+    </form>
+  </body>
+</html>
