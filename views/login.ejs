@@ -15,11 +15,14 @@
         <li><a href="/users/login">Log in</a></li>
   		</ul>	
   	</header>
+    <a href="/auth/google">Google+</a>
     <form class='add-form' action="/users" method='POST'>
       <input type="text" name='email' placeholder="Enter your email">
       <input type="text" name='password' placeholder="Enter your password">
-      <% if(message) { %> 
+      <% if(message) { %>
           <p>*<%= message %></p>
+      <% } else { %>
+          <p>sdas</p>
       <% } %>
       <input type="submit" value='Log in'>
     </form>

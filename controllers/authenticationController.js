@@ -1,12 +1,13 @@
 var User = require('../models/user')
 
 exports.isUserLogged =  (req, res, next) => {
+	console.log(req.session, 'authentication controller session')
 		if(req.session && req.session.userId) {
 			User.findById(req.session.userId, (err, user) => {
 				if(err) console.log(err)
 				req.user = user;
 				res.locals.user = user;
-				console.log(user)
+				console.log(user, 'from isuserlooged in')
 				next();
 			})
 		}
@@ -31,13 +32,12 @@ exports.sessions = (req, res, next) => {
 }
 
 
+exports.isAuthorLoggedIn = (req, res, next) => {
+	if(!req.author) {
+		res.redirect('/users/login')
+	}
+}
 
-// user_logout: (req, res, next) => {
-// 		req.session.destroy(function(err) {
-// 			if(err) return next(err);
-// 			res.redirect('/users/login')
-// 		})
-// 	}
 
 
 

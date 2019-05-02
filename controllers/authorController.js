@@ -3,9 +3,9 @@ var Author = require('../models/author');
 
 // Display Author create form on GET.
 exports.author_get = function(req, res, next) {
-	console.log(req.session);
+	console.log(req.session, 'from author controller');
 	Author.find({}, (err, authors) => {
-		console.log(authors)
+		// console.log(authors)
 		res.render('addAuthor');
 	})
 }

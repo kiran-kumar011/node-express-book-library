@@ -1,19 +1,19 @@
 var User = require('../models/user');
 
 exports.user_signIn = (req, res, next) => {
-	console.log('users get request')
+	// console.log('users get request')
   res.render('signin');
 }
 
 exports.user_login = (req, res, next) => {
 	var message = req.flash('error')[0];
-	console.log(message)
+	// console.log(message)
 	res.render('login', {message})
 }
 
 exports.user_login_form = (req, res, next) => {
 	var error = req.flash('login', 'login page')
-	console.log(error)
+	// console.log(error)
 	User.create(req.body, (err, user) => {
 		if(err) return res.redirect('/users/login');
 		res.render('login')
@@ -47,10 +47,8 @@ exports.user_verification = (req, res, next) => {
 
 
 exports.user_logout = (req, res, next) => {
-	req.session.destroy(function(err) {
-			if(err) return next(err);
-			res.redirect('/users/login')
-		})
+	req.session.destroy();
+	res.redirect('/');
 }
 
 

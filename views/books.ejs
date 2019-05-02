@@ -5,17 +5,21 @@
     <link rel='stylesheet' href='/stylesheets/index.css' />
   </head>
   <body>
-    <header>
+    <header class="<%= user ? 'header-active' : 'header-inactive' %>">
       <a href="/"><h1>Books Lists</h1></a>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/add">Add Books</a></li>
         <li><a href="/author">Author</a></li>
          <% if(user) {%>
-            <% if(user.id) {%>
-              <li><a href="/users/logout">Log out</a></li> 
+            <% if(user.id) { %>
+            <div class='logout'>
+              <li><p><%= user.username %></p></li>
+              <li><a href="/users/logout">Log out</a></li>
+            </div>
             <% } %>
-        <% } else {%>
+        <% } else { %>
+          <li><a href="/users/signin">Sign in</a></li>
           <li><a href="/users/login">Log in</a></li>
         <% } %>
       </ul>
