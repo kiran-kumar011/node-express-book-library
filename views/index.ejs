@@ -5,40 +5,26 @@
     <link rel='stylesheet' href='/stylesheets/index.css' />
   </head>
   <body>
-  	<header class="<%= user ? 'header-active' : 'header-inactive' %>">
-  		<a href="/"><h1>Books Lists</h1></a>
-  		<ul>
-  			<li><a href="/">Home</a></li>
-  			<li><a href="/add">Add Books</a></li>
-  			<li><a href="/author">Author</a></li>
-        <% if(user) {%>
-            <% if(user.id) { %>
-            <div class='logout'>
-              <li><p><%= user.username %></p></li>
-              <li><a href="/users/logout">Log out</a></li>
-            </div>
-            <% } %>
-        <% } else { %>
-          <li><a href="/users/signin">Sign in</a></li>
-          <li><a href="/users/login">Log in</a></li>
-        <% } %>
-  		</ul>	
-  	</header>
+  	<%- include partials/header %>
     <div class="list-wrapper">
       <% books.forEach(value => { %>
       <div class='book-list'>
         <a href="/book/<%= value.id %>"><h1>Book: <%= value.title %></h1></a>
-        <h2>BY: <%= value.author.name %></h2>
-        <p>Description: <%= value.description.slice(0, 100) %></p>
-        <!-- <% if(value.description.length > 100) { %>
-              <p><%= value.description.slice(0, 100) %></p>
+        <h2><%= value.author.username %></h2>
+        <% if(value.description.length > 100) { %>
+            <p><%= value.description.slice(0, 100) %></p>
         <% } else { %>
-              <p>not greater than 100</p>
-        <% } %> -->
-        <div class='button'>
-          <a class='del-btn' href="/del/<%= value.id %>"><button >Del</button></a>
-          <a class='edit-btn' href="/edit/<%= value.id %>"><button>Edit</button></a>
-        </div>
+            <p><%= value.description %></p>
+        <% } %>
+        <% if(author) {%>
+            <div class='button'>
+              <a class='del-btn' href="/del/<%= value.id %>"><button >Del</button></a>
+              <a class='edit-btn' href="/edit/<%= value.id %>"><button>Edit</button></a>
+            </div>
+        <% } %>
+        <% if(user) { %>
+          <a class='edit-btn' href="/users/buy/<%= value.id %>"><button>buy</button></a>
+        <% } %>
       </div>
       <% }) %>
     </div>

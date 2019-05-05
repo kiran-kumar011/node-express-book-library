@@ -19,8 +19,14 @@ exports.author_create_post = (req, res, next) => {
 }
 
 
-
-
+// adding books.
+exports.add_book = (req, res, next) => {
+	console.log(res.locals.author, 'which is stored in locals');
+	Author.find({}, (err, authors) => {
+		console.log(authors, '///////////////inside find/////////////');
+  	res.render('add', { authors });
+	})
+}
 
 
 

@@ -126,7 +126,7 @@ li, a {
 	text-transform: capitalize;
 	text-shadow: 2px 2px black;
 	padding: 10px 0;
-
+	color: white;
 }
 .book-list h2 {
 	font-size: 20px;
@@ -209,10 +209,62 @@ select:focus {
 	box-sizing: border-box;
 	border-radius: 10px;
 	line-height: 25px;
+	text-align: center;
+	margin: 0 auto;
+	text-transform: capitalize;
 }
 
+.logout :first-child {
+	margin-bottom: 5px;
+}
 
+section {
+	display: block;
+	margin: 0 auto;
+	/*width: 60vw;*/
+	text-align: center;
+	box-sizing: border-box;
+	padding: 0 100px;
+}
 
+.login-wrapper {
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr auto;
+	align-items: center;
+	/*text-align: center;*/
+	align-content: space-around;
+}
 
+h1 {
+	font-size: 24px;
+	color: dodgerblue;
+	margin: 20px 0;
+	text-transform: capitalize;
+}
 
+.login-wrapper a {
+	border: 1px solid dodgerblue;
+}
+
+.login-wrapper:first-child {
+	text-align: center;
+}
+
+.border {
+	height: 150px;
+	border: 1px solid dodgerblue;
+}
+
+.border-wrap {
+	margin: 0 auto;
+}
+
+.cart-item {
+	width: 40vw;
+	border: 1px solid dodgerblue;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 0 20px;
+}
 

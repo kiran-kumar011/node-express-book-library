@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel='stylesheet' href='/stylesheets/index.css' />
+  </head>
+  <body>
+    <%- include partials/header %>
+    <main>
+      <div>
+        <h1>hello</h1>
+        <% user.cart.forEach((item, index) => { %>
+          <div class='cart-item'>
+            <h1><a href="/book/<%= item.bookID %>"><%= item.bookTitle %></a></h1>
+            <h1><%= item.bookAuthor %></h1>
+            <h1>Quantity: <span><%= item.quantity %></span><a href="/users/buy/<%= item.bookID %>"><button>inc+</button></a><a href=""><button>dec-</button></a></h1>
+          </div>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>

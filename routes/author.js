@@ -10,9 +10,11 @@ router.get('/',  authentication_controller.isUserLogged, author_controller.autho
 
 router.post('/', author_controller.author_create_post);
 
+//handling router for adding new book.
+router.get('/add', author_controller.add_book)
 router.get('/profile', (req, res) => {
 	// console.log(req.passport.session, 'profile page request')
-	res.render('profile')
+	res.render('profile');
 })
 
 module.exports = router;

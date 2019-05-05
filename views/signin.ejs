@@ -5,14 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/index.css' />
   </head>
   <body>
-  	<header>
-  		<a href="/"><h1>Books Lists</h1></a>
-  		<ul>
-  			<li><a href="/">Home</a></li>
-  			<li><a href="/add">Add Books</a></li>
-  			<li><a href="/author">Author</a></li>
-  		</ul>	
-  	</header>
+  	<%- include partials/header %>
     <form class='add-form' action="/users/login" method='POST'>
       <input type="text" name='username' placeholder="Enter username">
       <input type="text" name='email' placeholder="Enter your email">

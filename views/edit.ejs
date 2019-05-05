@@ -5,16 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/index.css' />
   </head>
   <body>
-    <header>
-  		<a href="/"><h1>Books Lists</h1></a>
-  		<ul>
-  			<li><a href="/">Home</a></li>
-  			<li><a href="/add">Add Books</a></li>
-  			<li><a href="/author">Author</a></li>
-        <li><a href="/users/signin">Sign in</a></li>
-        <li><a href="/users/login">Log in</a></li>
-  		</ul>
-  	</header>
+    <%- include partials/header %>
   	<form class='add-form' action="/edit/<%= book._id %>/update" method="POST">
       <input type="text" name="title" placeholder="Enter book title" value='<%= book.title %>'>
       <textarea type="text" rows='10' name="description" placeholder="Enter book description"><%= book.description %></textarea>

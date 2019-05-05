@@ -5,31 +5,13 @@
     <link rel='stylesheet' href='/stylesheets/index.css' />
   </head>
   <body>
-  	<header class="<%= user ? 'header-active' : 'header-inactive' %>">
-  		<a href="/"><h1>Books Lists</h1></a>
-  		<ul>
-  			<li><a href="/">Home</a></li>
-  			<li><a href="/add">Add Books</a></li>
-  			<li><a href="/author">Author</a></li>
-         <% if(user) {%>
-            <% if(user.id) { %>
-            <div class='logout'>
-              <li><p><%= user.username %></p></li>
-              <li><a href="/users/logout">Log out</a></li>
-            </div>
-            <% } %>
-        <% } else { %>
-          <li><a href="/users/signin">Sign in</a></li>
-          <li><a href="/users/login">Log in</a></li>
-        <% } %>
-  		</ul>	
-  	</header>
+    <%- include partials/header %>
     <form class='add-form' action="/" method="POST">
     	<input type="text" name="title" placeholder="Enter book title">
     	<textarea rows='10' type="text" name="description" placeholder="Enter book description..."></textarea>
-      <select class='select' name="author">
+      <select  class='select' name="author">
         <% authors.forEach(author => { %>
-         <option value="<%= author._id %>"><%= author.name %></option>
+         <option value="<%= author._id %>"><%= author.username %></option>
         <% }) %>
       </select>
 			<input type="submit" value="Add Book">

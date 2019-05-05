@@ -5,7 +5,8 @@ const saltRounds = 10;
 var userSchema = new mongoose.Schema({
 	username: { type: String, required: true },
 	email: { type: String, unique: true },
-	password: { type: String, required: true, minlength: 6 }
+	password: { type: String, required: true, minlength: 6 },
+	cart: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
 })
 
 userSchema.pre('save', function(next) {

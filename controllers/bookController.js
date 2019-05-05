@@ -1,28 +1,33 @@
 var Book = require('../models/book');
 var Author = require('../models/author');
 
+
 exports.books_get = (req, res, next) => {
-	console.log(req.flash('info'))
+	console.log(req.session, '......................session..............')
 	Book.find({}).populate('author').exec((err, books) => {
 		if(err) console.error(err);
-		res.render('index', {books})
+		// console.log(books, '..............books array/...............')
+		res.render('index', { books });
 	})
 }
 
-
-exports.add_book = (req, res, next) => {
-	Author.find({}, (err, authors) => {
-  	res.render('add', { authors });
-	})
-}
 
 
 exports.book_post = (req, res) => {
 	Book.create(req.body, (err, book) => {
 		if(err) console.error(err);
-		Author.findByIdAndUpdate(book.author, {$push: {books: book._id}}, { new: true }, (err, author) => {
+		Author.findByIdAndUpdate(book.author, {$push: { books: book._id}}, { new: true }, (err, author) => {
 			res.redirect('/');
-		})
+		});
+	})
+}
+
+
+exports.add_book = (req, res, next) => {
+	console.log(res.locals.author, 'which is stored in locals');
+	Author.find({}, (err, authors) => {
+		console.log(authors);
+  	res.render('add', { authors });
 	})
 }
 
@@ -62,12 +67,30 @@ exports.edit_book = (req, res, next) => {
 
 
 
-exports.delete_book = (req,res) => {
+exports.delete_book = (req, res) => {
+	console.log(req.author.id, '.............id...............')
 	var index = req.params.id;
-	Book.findByIdAndDelete({_id: index}, (err, book) => {
-		if(err) console.error(err);
+	req.author.books.forEach(bookID => {
+		if(bookID == index) {
+			Book.findByIdAndDelete({_id: index}, (err, book) => {
+				if(err) console.error(err);
+			})
+		} 
+	})
+	
+	Author.findByIdAndUpdate(req.author.id, {$pull: {books: index}}, {safe: true, upsert: true}, (err, author) => {
+		if(err) console.log(err);
+		console.log(author);
 		res.redirect('/')
 	})
+	// for(let i=0; i < req.author.books.length; i++) {
+	// 	if(index ==  req.author.books[i]) {
+	// 		Book.findByIdAndDelete({_id: index}, (err, book) => {
+	// 			if(err) console.error(err);
+	// 			return;
+	// 		})
+	// 	}
+	// }
 }
 
 

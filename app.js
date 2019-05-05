@@ -59,7 +59,9 @@ app.use(session({
 app.use(flash());
 
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(authentication_controller.sessions);
+app.use(authentication_controller.author_session);
 
 
 app.use('/', indexRouter);
